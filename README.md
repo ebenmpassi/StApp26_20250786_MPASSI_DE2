@@ -1,88 +1,358 @@
 # ARIA Industrial Accidents Dashboard (France)
 
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
-[![Streamlit 1.33+](https://img.shields.io/badge/Streamlit-1.33%2B-FF4B4B)](https://streamlit.io/)
-[![Plotly 5.18+](https://img.shields.io/badge/Plotly-5.18%2B-3F4F75)](https://plotly.com/python/)
-[![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20FR%20%7C%20ES%20%7C%20AR%20%7C%20ZH-orange)](#-multilingual-support)
-[![License: Open](https://img.shields.io/badge/License-Open%20Data-green)](https://www.data.gouv.fr/)
+An interactive **data storytelling dashboard** built with **Streamlit** and **Plotly** to explore, visualize, and analyze industrial accidents, their root causes, and environmental impacts across France.
 
-An interactive data-storytelling web application built with **Streamlit** and **Plotly** to explore, map, and analyze industrial accidents, root causes, and environmental risks recorded in France.
+This project was developed as part of the **Data Storytelling & Visualization** course at **EFREI Paris**.
 
 ---
 
-## Project & Academic Metadata
+# Project Information
 
-* **Student:** Exauce Eben-Ezer MPASSI
-* **Email:** exauce.mpassi@efrei.net
-* **Professor:** Mano Joseph Mathew
-* **Course:** Data Storytelling & Visualization
-* **Academic Year:** 2026–2027
-* **GitHub:** [https://github.com/ebenmpassi](https://github.com/ebenmpassi)
-* **LinkedIn:** [Exauce MPASSI](https://www.linkedin.com/in/exauce-ebenmpassi/)
-* **Link-streamlit:** https://ebenmpassi-stapp26-20250786-mpassi-de2-app-vx3dqe.streamlit.app/
-
----
-
-## Multilingual Support
-
-The dashboard provides dynamic, full-text internationalization for 5 languages:
-* **English (EN)**
-* **Français (FR)**
-* **Español (ES)**
-* **العربية (AR)** *(Includes dynamic Right-to-Left CSS layout adjustments)*
-* **中文 (ZH)**[cite: 16]
+- **Student:** Exaucé Eben-Ezer MPASSI
+- **Email:** exauce.mpassi@efrei.net
+- **Professor:** Mano Joseph Mathew
+- **Course:** Data Storytelling & Visualization
+- **Academic Year:** 2026–2027
+- **GitHub:** https://github.com/ebenmpassi
+- **LinkedIn:** https://www.linkedin.com/in/exauce-ebenmpassi/
+- **Link of the streamlit dashboard:** https://ebenmpassi-stapp26-20250786-mpassi-de2-app-vx3dqe.streamlit.app/
 
 ---
 
-## Storytelling & Narrative Overview
+# Project Overview
 
-This application investigates industrial safety dynamics across Metropolitan France following a structured 4-stage narrative arc:
+Industrial accidents can have serious consequences for workers, local communities, infrastructure, and the environment. Through the analysis of more than **53,000 industrial incidents**, this dashboard seeks to identify trends, high-risk regions, vulnerable industrial sectors, and recurring accident causes across France.
 
-1. **Introduction & Context:** Introduces historical industrial disasters (*AZF explosion in Toulouse (2001)* and *Lubrizol fire in Rouen (2019)*) and highlights the role of open data transparency.
-2. **Overview & Temporal Trends:** Features key performance metrics (KPIs) and tracks annual incident progression from 1990 onwards alongside regulatory milestones.
-3. **Deep Dives & Visual Analytics:**
-   * **Interactive Departmental Map:** Choropleth risk heatmap across French departments using GeoJSON boundaries.
-   * **Root Causes vs. Consequences Matrix:** Row-normalized co-occurrence heatmap linking organizational defects to human, material, and environmental damage.
-   * **Narrative Text Mining:** High-speed regex extraction of operational keywords (*Fire, Leak, Tank, Valve, Piping*) from free-text field logs.
-   * **Departmental Ranking:** Top 20 industrial accident hotspots (*Nord, Bouches-du-Rhône, Seine-Maritime, etc.*).
-   * **Impacted Economic Sectors:** Bubble scatter plot of top NAF activity branches (*Freight Transport, Agriculture, Gas Distribution*).
-   * **Hierarchical Risk Breakdown:** Treemap nesting NAF activity sectors into dominant ARIA incident types.
-   * **CLP Chemical Hazards:** Donut breakdown of dangerous chemical classifications (*Flammable gases, Carcinogens*).
-4. **Implications & Quality Audit:** Strategic policy recommendations, field completeness audit charts, and a downloadable filtered dataset table.
+Rather than presenting raw data alone, the application follows a **data storytelling approach**, transforming complex industrial safety records into understandable insights through interactive visualizations and narrative explanations.
 
 ---
 
-## Dataset Source & Consolidation
+# Objectives
 
-The dashboard relies on open data from the official **ARIA** (*Analyse, Recherche et Information sur les Accidents*) database, managed by **BARPI** (*Bureau d’Analyse des Risques et Pollutions Industriels*).
+The dashboard aims to answer several key questions:
 
-* **Source Portal:** [data.gouv.fr — ARIA Dataset](https://www.data.gouv.fr/datasets/analyse-recherche-et-information-sur-les-accidents)
-* **Scope:** 53,000+ public industrial incident reports in France[cite: 11].
-* **Consolidation Note:** To bypass the official search portal's 500-record export limit, this project utilizes a fully consolidated UTF-8 dataset stored locally (`data/ARIA.csv`).
+- How have industrial accidents evolved over time in France?
+- Which departments are the most affected?
+- Which industrial sectors experience the highest number of incidents?
+- What are the most common root causes and consequences?
+- What hazardous substances are most frequently involved?
+- What lessons can be learned to improve industrial safety?
 
 ---
 
-## Project Architecture
+# Storytelling Structure
 
-Built following modular Streamlit application architecture guidelines:
+The dashboard follows a four-stage narrative structure.
 
-StApp26_20000_MPASSI_DE2/
-├── app.py                     # Main Streamlit app entry point & language router
-├── requirements.txt           # Project environment dependencies
-├── README.md                  # Comprehensive project documentation
+## 1. Introduction & Context
+
+This section introduces the importance of industrial safety through major French industrial disasters:
+
+- AZF Explosion (Toulouse, 2001)
+- Lubrizol Fire (Rouen, 2019)
+
+It also presents the ARIA database and explains the importance of open data for industrial risk management.
+
+---
+
+## 2. Overview & Temporal Trends
+
+This section provides:
+
+- Key Performance Indicators (KPIs)
+- Annual evolution of industrial incidents
+- Long-term accident trends
+- Historical context and regulatory milestones
+
+The objective is to understand how industrial incidents have changed over time.
+
+---
+
+## 3. Deep Dive Analysis
+
+### Geographic Analysis
+
+- Interactive departmental risk map
+- Top departments by number of incidents
+
+### Root Cause Analysis
+
+- Correlation heatmap between root causes and observed consequences
+
+### Text Mining Analysis
+
+- Keyword extraction from accident narratives
+- Identification of recurring technical failures
+
+### Sector Analysis
+
+- Top industrial sectors based on NAF activity codes
+- Bubble chart sector ranking
+- Sector-to-accident-type treemap
+
+### Hazard Analysis
+
+- CLP hazard class distribution
+- Identification of the most common hazardous substances
+
+---
+
+## 4. Conclusions & Data Quality Assessment
+
+The final section includes:
+
+- Key findings
+- Strategic recommendations
+- Data completeness analysis
+- Data quality indicators
+- Downloadable filtered dataset
+
+---
+
+# Dataset Source
+
+This project uses open data from the **ARIA (Analyse, Recherche et Information sur les Accidents)** database maintained by **BARPI (Bureau d'Analyse des Risques et Pollutions Industriels)**.
+
+### Dataset Information
+
+- **Source:** https://www.data.gouv.fr/datasets/analyse-recherche-et-information-sur-les-accidents
+- **Coverage:** More than 53,000 industrial and technological incidents in France
+- **Provider:** French Ministry for Ecological Transition
+- **Format:** CSV
+
+### Data Preparation
+
+To improve usability and performance, accident records were consolidated into a single UTF-8 encoded dataset:
+
+```text
+data/ARIA.csv
+```
+
+---
+
+# Main Features
+
+Interactive dashboard built with Streamlit
+
+Dynamic filtering by country, department, and year
+
+KPI monitoring
+
+Interactive geographic mapping
+
+Time-series analysis
+
+Sector ranking and comparison
+
+Root cause vs consequence analysis
+
+Text mining of accident reports
+
+CLP hazard classification analysis
+
+Data quality and completeness assessment
+
+Downloadable filtered dataset
+
+---
+
+# Multilingual Support
+
+The dashboard supports multiple languages:
+
+- 🇬🇧 English
+- 🇫🇷 French
+- 🇪🇸 Spanish
+- 🇸🇦 Arabic (RTL support)
+- 🇨🇳 Chinese
+
+---
+
+# Project Architecture
+
+The application follows a modular architecture designed to separate data processing, visualization, and presentation layers.
+
+```text
+StApp26_20250786_MPASSI_DE2/
+│
+├── app.py
+│   # Main Streamlit application
+│
+├── requirements.txt
+│   # Dependencies
+│
+├── README.md
+│
 ├── data/
-│   └── ARIA.csv               # Processed ARIA database file
+│   └── ARIA.csv
+│
 ├── assets/
-│   ├── exauce.jpeg            # Profile image
-│   ├── rouen.avif             # Lubrizol incident photo
-│   ├── substance.avif         # CLP hazardous substances photo
-│   └── toulouse.jpg           # AZF disaster photo
+│   ├── exauce.jpeg
+│   ├── rouen.avif
+│   ├── substance.avif
+│   └── toulouse.jpg
+│
 ├── sections/
-│   ├── intro.py               # Section 1: Hook, context, and open data
-│   ├── overview.py            # Section 2: KPIs & temporal line trends
-│   ├── deep_dives.py          # Section 3: Maps, heatmaps, text mining, treemaps
-│   └── conclusions.py         # Section 4: Policy implications, audit & CSV download
+│   ├── intro.py
+│   ├── overview.py
+│   ├── deep_dives.py
+│   └── conclusions.py
+│
 └── utils/
-    ├── io.py                  # Cached data loading and date parsing
-    ├── prep.py                # Filter logic, KPI computations & quality audits
-    └── viz.py                 # Vectorized Plotly visualization engine
+    ├── io.py
+    ├── prep.py
+    └── viz.py
+```
+
+## Architecture Overview
+
+### Presentation Layer
+
+Located in the `sections/` folder:
+
+- `intro.py` → Project context and industrial disasters
+- `overview.py` → KPIs and temporal trends
+- `deep_dives.py` → Advanced visual analytics
+- `conclusions.py` → Findings and recommendations
+
+### Data Processing Layer
+
+Located in `utils/prep.py`:
+
+- Data cleaning
+- Filtering
+- KPI calculations
+- Data quality assessment
+
+### Visualization Layer
+
+Located in `utils/viz.py`:
+
+- Plotly charts
+- Maps
+- Heatmaps
+- Treemaps
+- Text mining visualizations
+
+### Performance Layer
+
+Located in `utils/io.py`:
+
+- Dataset loading
+- Date parsing
+- Streamlit caching
+
+---
+
+# Technologies Used
+
+### Programming
+
+- Python 3
+
+### Data Processing
+
+- Pandas
+- NumPy
+
+### Visualization
+
+- Plotly
+
+### Web Application
+
+- Streamlit
+
+---
+
+# Installation
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/ebenmpassi/StApp26_20250786_MPASSI_DE2.git
+```
+
+## Navigate to the Project Folder
+
+```bash
+cd StApp26_20250786_MPASSI_DE2
+```
+
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run the Application
+
+```bash
+streamlit run app.py
+```
+
+---
+
+# Data Quality & Limitations
+
+Several factors should be considered when interpreting the results:
+
+- Reported incidents may increase due to stricter reporting requirements rather than actual increases in risk.
+- Some records contain missing values.
+- Administrative and regulatory changes may affect long-term comparisons.
+- Correlation does not imply causation.
+- The analysis relies on publicly available information contained in the ARIA database.
+
+---
+
+# Key Insights
+
+The analysis reveals several notable patterns:
+
+- Industrial incidents are concentrated in a limited number of departments.
+- Certain industrial sectors account for a disproportionate share of reported accidents.
+- Human and organizational factors frequently contribute to incident occurrence.
+- Hazardous substance management remains a recurring challenge across multiple industries.
+- Reporting trends often reflect both operational incidents and regulatory evolution.
+
+---
+
+# Learning Outcomes
+
+This project demonstrates skills in:
+
+- Open data integration
+- Data cleaning and preparation
+- Exploratory Data Analysis (EDA)
+- Interactive dashboard design
+- Data storytelling
+- Geographic visualization
+- Text mining
+- Risk communication
+- Streamlit development
+- Plotly visualization
+
+---
+
+# Acknowledgements
+
+Special thanks to:
+
+- **EFREI Paris**
+- **Mano Joseph Mathew**
+- **BARPI**
+- **data.gouv.fr**
+
+for providing the resources and data necessary to complete this project.
+
+---
+
+# Author
+
+**Exaucé Eben-Ezer MPASSI**
+
+Master's Student in Data Engineering & Artificial Intelligence  
+EFREI Paris
+
+- GitHub: https://github.com/ebenmpassi
+- LinkedIn: https://www.linkedin.com/in/exauce-ebenmpassi/
