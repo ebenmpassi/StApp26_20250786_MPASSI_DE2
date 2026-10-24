@@ -19,6 +19,7 @@ An interactive data-storytelling web application built with **Streamlit** and **
 * **Academic Year:** 2026–2027
 * **GitHub:** [https://github.com/ebenmpassi](https://github.com/ebenmpassi)
 * **LinkedIn:** [Exauce MPASSI](https://www.linkedin.com/in/exauce-ebenmpassi/)
+* **Link-streamlit:** https://ebenmpassi-stapp26-20250786-mpassi-de2-app-vx3dqe.streamlit.app/
 
 ---
 
